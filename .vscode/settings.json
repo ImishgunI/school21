@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "stdbool.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "lexer.h": "c",
+        "random": "cpp",
+        "cctype": "cpp",
+        "array": "cpp",
+        "charconv": "cpp",
+        "compare": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "variant": "cpp"
+    }
+}

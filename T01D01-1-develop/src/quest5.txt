@@ -1,0 +1,7 @@
+vim ~/T01D01-1/src/door_management_files/door_configuration/door1.conf
+
+
+
+:wq
+
+
