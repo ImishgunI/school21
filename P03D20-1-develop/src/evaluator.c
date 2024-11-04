@@ -21,7 +21,7 @@ stack_n* evaluate_rpn(char* rpn_string, double* values) {
             }
             double res1 = (double)number;
             push_n(&node, res1);
-            if(rpn_string[i] == 'x') {
+            if (rpn_string[i] == 'x') {
                 static int j = 0;
                 x = values[j++];
                 push_n(&node, x);
@@ -65,14 +65,14 @@ stack_n* evaluate_rpn(char* rpn_string, double* values) {
             res = tan(n1);
             free(delete_node);
             push_n(&node, res);
-        }
-        else if (rpn_string[i] == 'c' && rpn_string[i + 1] == 't' && rpn_string[i + 2] == 'g') {
+        } else if (rpn_string[i] == 'c' && rpn_string[i + 1] == 't' && rpn_string[i + 2] == 'g') {
             delete_node = pop_n(&node);
             n1 = delete_node->number;
             res = cos(n1) / sin(n1);
             free(delete_node);
             push_n(&node, res);
-        } else if (rpn_string[i] == 's' && rpn_string[i + 1] == 'q' && rpn_string[i + 2] == 'r' && rpn_string[i + 3] == 't') {
+        } else if (rpn_string[i] == 's' && rpn_string[i + 1] == 'q' && rpn_string[i + 2] == 'r' &&
+                   rpn_string[i + 3] == 't') {
             delete_node = pop_n(&node);
             n1 = delete_node->number;
             res = sqrt(n1);
