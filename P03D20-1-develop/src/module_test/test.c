@@ -56,7 +56,7 @@ void peek_test() {
 }
 
 void rpn_test() {
-    char* expr = "sin(cos(2 * x))";
+    char* expr = "sin(x) * cos(2 * x)";
     int len = strlen(expr);
     char* tokens = NULL;
     char* split_expression = "";
@@ -68,7 +68,7 @@ void rpn_test() {
 }
 
 void evaluate_rpn_test() {
-    char* expr = "sin(cos(2 * x))";
+    char* expr = "sin(x) + cos(2 * x)";
     int len = strlen(expr);
     char* tokens = NULL;
     char* split_expression = "";
