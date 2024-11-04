@@ -12,6 +12,7 @@ void pop(stack** node);
 char* peek(stack* node);
 int is_empty(stack* node);
 
+// stack for numbers
 typedef struct stack_number {
     double number;
     struct stack_number* next;
