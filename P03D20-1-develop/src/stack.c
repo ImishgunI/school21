@@ -38,3 +38,26 @@ void pop(stack** node) {
 char* peek(stack* node) { return node->operand; }
 
 int is_empty(stack* node) { return (node == NULL) ? 1 : 0; }
+
+void push_n(stack_n** head, double number) {
+    stack_n* node = malloc(sizeof(stack_n));
+    if (node == NULL) {
+        perror("memory wasn't been allocated\n");
+        return;
+    }
+
+    node->number = number;
+    node->next = *head;
+    *head = node;
+}
+
+stack_n* pop_n(stack_n** node) {
+    stack_n* delete_node;
+    if (node == NULL) {
+        perror("stack is empty");
+        return NULL;
+    }
+    delete_node = *node;
+    *node = (*node)->next;
+    return delete_node;
+}

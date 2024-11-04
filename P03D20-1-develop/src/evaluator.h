@@ -1,6 +1,7 @@
 #ifndef EVALUATOR_H
 #define EVALUATOR_H
 
+#include "stack.h"
 /*
    Модуль вычисления выражений (evaluator):
         Задача: Вычисляет значение выражения, заданного в обратной польской нотации, для конкретного значения
@@ -8,11 +9,10 @@
    результата выражения.
 
     Функции:
-        evaluate_rpn(): Принимает выражение в ОНП и вычисляет его значение.
+        evaluate_rpn(): Принимает выражение в ОПН и вычисляет его значение.
         apply_operator(): Применяет оператор к операндам.
 */
 
-int* evaluate_rpn(char* rpn_string, int* );
+stack_n* evaluate_rpn(char* rpn_string, double* values);
 
-
-#endif // EVALUATOR_H
+#endif  // EVALUATOR_H
