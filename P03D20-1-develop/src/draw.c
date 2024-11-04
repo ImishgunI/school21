@@ -1,40 +1,40 @@
 #include "draw.h"
 
+#include <math.h>  // Для округления и константы M_PI
 #include <stdio.h>
-#include <math.h> // Для округления и константы M_PI
 
-#define HEIGTH 25           // Высота экрана
-#define WIDTH 80            // Ширина экрана
-#define STAR '*'            // Символ для графика
-#define POINT '.'           // Пустое пространство
-#define MIN_VALUE -1.0      // Минимальное значение по y
-#define MAX_VALUE 1.0       // Максимальное значение по y
-#define X_RANGE (4 * M_PI)  // Диапазон значений x от 0 до 4π
+#define HEIGHT 25
+#define WIDTH 80
+#define STAR '*'
+#define POINT '.'
+#define MIN_VALUE -1.0
+#define MAX_VALUE 1.0
+#define M_PI 3.14159265358979323846
 
 void draw_graph(double* values, int num_values) {
-    for (int y = HEIGTH - 1; y >= 0; --y) {    
-        for (int x = 0; x < WIDTH; ++x) {      
-            if (x < num_values) {
-                double scaled_value = (values[x] - MIN_VALUE) / (MAX_VALUE - MIN_VALUE) * (HEIGTH - 1);
-                int y_position = HEIGTH / 2 - (int)round((values[x] - MIN_VALUE) / (MAX_VALUE - MIN_VALUE) * (HEIGTH / 2 - 1));
+    char field[HEIGHT][WIDTH];
 
-                int x_position = (int)((double)x / (num_values - 1) * (WIDTH - 1));
-
-                if (y == 0) {
-                    printf("Debug: x=%d, x_position=%d, values[x]=%f, scaled_value=%f, y_position=%d\n", 
-                           x, x_position, values[x], scaled_value, y_position);
-                }
-
-                if (y == y_position && x == x_position) {
-                    printf("%c", STAR); // Рисуем звезду
-                } else {
-                    printf("%c", POINT); // Пустое пространство
-                }
-            } else {
-                printf("%c", POINT); // Если нет значения, ставим пустое пространство
-            }
+    for (int i = 0; i < HEIGHT; i++) {
+        for (int j = 0; j < WIDTH; j++) {
+            field[i][j] = '.';
         }
-        printf("\n"); // Переход на следующую строку
+    }
+    int step = WIDTH / num_values;
+
+    for (int i = 0; i < num_values; i++) {
+        int x = i * step;
+        int y = (int)round((1 - values[i]) * 12);
+
+        if (y >= 0 && y < HEIGHT && x >= 0 && x < WIDTH) {
+            field[y][x] = '*';
+        }
+    }
+
+    // Вывод графика на экран
+    for (int i = 0; i < HEIGHT; i++) {
+        for (int j = 0; j < WIDTH; j++) {
+            putchar(field[i][j]);
+        }
+        putchar('\n');
     }
 }
-
