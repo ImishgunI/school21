@@ -53,7 +53,7 @@ void push_n(stack_n** head, double number) {
 
 stack_n* pop_n(stack_n** node) {
     stack_n* delete_node;
-    if (node == NULL) {
+    if (*node == NULL) {
         perror("stack is empty");
         return NULL;
     }
