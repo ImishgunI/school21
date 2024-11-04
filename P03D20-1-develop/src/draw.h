@@ -1,7 +1,6 @@
 #ifndef DRAW_H
 #define DRAW_H
 
-
 /*
 
 Структура программы.
@@ -16,7 +15,5 @@
 округление значений. map_to_screen(): Преобразует значения функции в координаты экрана (25x80).
 
 */
-
-
-
-#endif //DRAW_H
+void draw_graph(double* values, int num_values);
+#endif  // DRAW_H
