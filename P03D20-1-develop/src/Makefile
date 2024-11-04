@@ -6,6 +6,9 @@ BUILD_PATH_FOR_TEST = ./module_test/
 test: stack.o test.o lexer.o evaluate.o
 	$(CC) $(CFLAGS) $^ -o $(BUILD_PATH_FOR_TEST)$@ -lm
 
+graph: stack.o lexer.o evaluate.o draw.o graph.c
+	$(CC) $(CFLAGS) $^ -o $@ -lm
+
 stack.o: stack.c
 	$(CC) $(CFLAGS) -c stack.c -o $@
 
@@ -17,6 +20,12 @@ lexer.o: lexer.c
 
 evaluate.o: evaluator.c
 	$(CC) $(CFLAGS) -c evaluator.c -o $@
+
+draw.o: draw.c
+	$(CC) $(CFLAGS) -c draw.c -o $@
+
+graph.o: graph.c
+	$(CC) $(CFLAGS) -c graph.c -o $@
 
 clean: 
 	rm *.o
